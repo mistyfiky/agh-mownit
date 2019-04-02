@@ -8,7 +8,6 @@
 \usepackage{indentfirst}
 
 \usepackage{listings}
-\lstset{language=C}
 \usepackage{longtable}
 
 \title{MOwNiT - sprawozdanie 1}
@@ -22,7 +21,7 @@
 
 
   \newpage
-  \section*{Zadanie 1.} \label{sec:zadanie_1}
+  \section*{Zadanie 1.} \label{sec:Zadanie1}
 
   \paragraph{Treść} ~\\
   Napisać program liczący kolejne wyrazy ciągu: \\
@@ -33,7 +32,7 @@
   \textit{Uwaga: Należy wprowadzić zmienne pomocnicze, aby uniknąć obliczeń w rejestrach procesora.} \\
 
   \paragraph{Rozwiązanie} ~\\
-  \lstinputlisting[caption={Kod programu do zadania 1},captionpos=b]{zad1.c} ~\\
+  \lstinputlisting[language=C,caption={Kod programu do zadania 1},captionpos=b,label=lst:KodProgramuDoZadania1]{zad1.c} ~\\
 
   \paragraph{Wynik} ~\\
   \begin{center}
@@ -141,7 +140,7 @@
       \hline 99 & 0.501722216606140136718750000000 & 1.211799537461232478818828894873 \\
       \hline
       \caption{Wynik programu do zadania 1}
-      \label{tab:rezultat_programu_do_zadania_1}
+      \label{tab:WynikProgramuDoZadania1}
     \end{longtable}
   \end{center}
 
@@ -149,7 +148,7 @@
 
 
   \newpage
-  \section*{Zadanie 2.} \label{sec:zadanie_2}
+  \section*{Zadanie 2.} \label{sec:Zadanie2}
 
   \paragraph{Treść} ~\\
   Napisać program liczący ciąg z wcześniejszego zadania, ale wg. wzoru \\
@@ -157,7 +156,7 @@
   - porównać z wynikami z wcześniejszego zadania. \\
 
   \paragraph{Rozwiązanie} ~\\
-  \lstinputlisting[caption={Kod programu do zadania 2},captionpos=b]{zad2.c}
+  \lstinputlisting[language=C,caption={Kod programu do zadania 2},captionpos=b,label=lst:KodProgramuDoZadania2]{zad2.c} ~\\
 
   \paragraph{Wynik} ~\\
   \begin{center}
@@ -265,7 +264,7 @@
       \hline 99 & 0.182596206665039062500000000000 & 1.292177776308081282863327032828 \\
       \hline
       \caption{Wynik programu do zadania 2}
-      \label{tab:rezultat_programu_do_zadania_2}
+      \label{tab:WynikProgramuDoZadania2}
     \end{longtable}
   \end{center}
 
@@ -273,13 +272,13 @@
 
 
   \newpage
-  \section*{Zadanie 3} \label{sec:zadanie_3}
+  \section*{Zadanie 3} \label{sec:Zadanie3}
 
   \paragraph{Treść} ~\\
   Znaleźć ,,maszynowe epsilon'', czyli najmniejszą liczbę a, taką że $ a + 1 > 1 $ \\
 
   \paragraph{Rozwiązanie} ~\\
-  \lstinputlisting[caption={Kod programu do zadania 3},captionpos=b]{zad3.c}
+  \lstinputlisting[language=C,caption={Kod programu do zadania 3},captionpos=b,label=lst:KodProgramuDoZadania3]{zad3.c} ~\\
 
   \paragraph{Wynik} ~\\
   \begin{center}
@@ -288,7 +287,7 @@
       \hline 0.000000119209289550781250000000 & 0.000000000000000222044604925031 \\
       \hline
       \caption{Wynik programu do zadania 3}
-      \label{tab:rezultat_programu_do_zadania_3}
+      \label{tab:WynikProgramuDoZadania3}
     \end{longtable}
   \end{center}
 
