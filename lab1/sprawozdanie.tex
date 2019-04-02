@@ -1,0 +1,42 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[polish]{babel}
+\usepackage[T1]{fontenc}
+
+\usepackage{listings}
+
+\title{MOwNiT - sprawozdanie 1}
+\input{../author.tex}
+\input{date.tex}
+
+\begin{document}
+
+  \lstset{language=C}
+
+  \maketitle
+  \newpage
+
+  \paragraph{Zadanie 1.} ~\\
+  Napisać program liczący kolejne wyrazy ciągu: \\
+  $ x_{n+1} = x_{n} + 3.0 * x_{n} * (1 - x_{n}) $ \\
+  startując z punktu $ x_{0} = 0.01 $.
+  Wykonać to zadanie dla różnych reprezentacji liczb (\textit{float}, \textit{double}).
+  Dlaczego wyniki się rozbiegają? \\
+  \textit{Uwaga: Nalezy wprowadzic zmienne pomocnicze, aby uniknac obliczen w rejestrach procesora.}
+  \lstinputlisting[caption={Kod programu do zadania 1}]{zad1.c}
+  \newpage
+
+  \paragraph{Zadanie 2.} ~\\
+  Napisać program liczący ciąg z wcześniejszego zadania, ale wg wzoru\\
+  $ x_{n+1} = 4.0 * x_{n} - 3.0 * x_{n} * x_{n} $ \\
+  - porównać z wynikami z wcześniejszego zadania.
+  \lstinputlisting[caption={Kod programu do zadania 2}]{zad2.c}
+  \newpage
+
+  \paragraph{Zadanie 3.} ~\\
+  Znaleźć "maszynowe epsilon", czyli najmniejszą liczbę a, taką że $ a + 1 > 1 $
+  \lstinputlisting[caption={Kod programu do zadania 3}]{zad3.c}
+  \newpage
+
+\end{document}
