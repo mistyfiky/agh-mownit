@@ -23,8 +23,8 @@ int main() {
     float f_xn = 0.01;
     double d_xn = 0.01;
     printf("n\tfloat\tdouble\n");
-    for (int i = 0; i <= n; i++) {
-        printf("%i\t%f\t%lf\n", i, f_xn, d_xn);
+    for (int i = 0; i < n; i++) {
+        printf("%i\t%.30f\t%.30lf\n", i, f_xn, d_xn);
         f_xn = f_calc(f_xn);
         d_xn = d_calc(d_xn);
     }
