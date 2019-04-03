@@ -7,14 +7,20 @@ Znaleźć ,,maszynowe epsilon'', czyli najmniejszą liczbę a, taką że $ a + 1
 \lstinputlisting[language=C,caption={Kod programu do zadania 3},captionpos=b,label=lst:KodProgramuDoZadania3]{zad3.c} ~\\
 
 \paragraph{Wynik} ~\\
-\begin{center}
-  \begin{longtable}{c|c}
-    \hline float & double \\
+\begin{table}[h]
+  \centering
+  \begin{tabular}{c|c}
+    float & double \\
     \hline 0.000000119209289550781250000000 & 0.000000000000000222044604925031 \\
-    \hline
-    \caption{Wynik programu do zadania 3}
-    \label{tab:WynikProgramuDoZadania3}
-  \end{longtable}
-\end{center}
+  \end{tabular}
+  \caption{Wynik programu do zadania 3}
+  \label{tab:WynikProgramuDoZadania3}
+\end{table}
 
 \paragraph{Podsumowanie} ~\\
+Program dzieli liczbę na 2 tak długo, aż dojdzie do momentu, w którym potraktuje ją jako 0 (dodanie jej do 1 zwróci 1).
+Dla mojego komputera znalazł maszynowe epsilon pojedynczej (binary32) oraz podwójnej (binary64) precyzji zgodne ze standardem IEEE 754 - 2008\nocite{WikiMachineEpsilon}.
+
+\begin{thebibliography}{9}
+  \bibitem{WikiMachineEpsilon} Machine epsilon - Wikipedia https://en.wikipedia.org/wiki/Machine\_epsilon
+\end{thebibliography}
