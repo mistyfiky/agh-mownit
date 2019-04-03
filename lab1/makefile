@@ -1,7 +1,7 @@
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
 CC := gcc
 CFLAGS := -Wall -Wextra
-REPORT := sprawozdanie.pdf
+REPORT := raport.pdf
 
 .PHONY: all clean distclean clean_report
 
