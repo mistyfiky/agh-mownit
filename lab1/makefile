@@ -1,23 +1,27 @@
-TARGET=zad1 zad2 zad3 sprawozdanie.pdf
-CC=gcc
-CFLAGS=-Wall
+TARGETS := $(patsubst %.c,%,$(wildcard *.c))
+CC := gcc
+CFLAGS := -Wall -Wextra
+REPORT := sprawozdanie.pdf
 
-all: $(TARGET) clean
+.PHONY: all clean distclean clean_report
 
-%.o: %.c
-	$(CC) -c -o $@ $< $(CFLAGS)
+all: $(TARGETS) $(REPORT) clean clean_report
 
-%: %.o
-	$(CC) -o $@ $^ $(CFLAGS)
-
-%.pdf: %.tex
-	pdflatex $^
-
-.PHONY: clean distclean
+$(TARGETS):
+	$(CC) $(CFLAGS) -c $@.c -o $@.o
+	$(CC) $(CFLAGS) $@.o -o $@
 
 clean:
-	-rm -f *.o
-	-rm -f *.{aux,log}
+	$(RM) $(patsubst %,%.o,$(TARGETS))
 
-distclean: clean
-	-rm -f $(TARGET)
+distclean: clean distclean_report
+	$(RM) $(TARGETS)
+
+$(REPORT):
+	pdflatex $(patsubst %.pdf,%,$@)
+
+clean_report:
+	$(RM) $(patsubst %,%.aux,$(TARGETS)) $(patsubst %.pdf,%.aux,$(REPORT)) $(patsubst %.pdf,%.log,$(REPORT))
+
+distclean_report: clean_report
+	$(RM) $(REPORT)

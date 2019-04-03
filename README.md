@@ -1,2 +1,1 @@
-```
-cp author.tex.dist author.tex
+# Metody Obliczeniowe w Nauce i Technice

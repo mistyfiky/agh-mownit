@@ -1,6 +1,3 @@
-author.tex
-date.tex
-!*.dist
 *.o
 zad?
 *.aux
