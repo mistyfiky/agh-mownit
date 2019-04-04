@@ -15,7 +15,6 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
-	$(RM) gsl_interp_*.txt wartosci.txt
 	$(RM) $(PDF).log *.aux
 
 distclean: clean
