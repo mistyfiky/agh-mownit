@@ -1,37 +1,37 @@
-\paragraph{Treść} ~\\
-Napisać program liczący ciąg z wcześniejszego zadania, ale wg. wzoru \\
-$ x_{n+1} = 4.0 * x_{n} - 3.0 * x_{n} * x_{n} $ \\
-- porównać z wynikami z wcześniejszego zadania. \\
+\paragraph{Treść}~\\
+Napisać program liczący ciąg z wcześniejszego zadania, ale wg. wzoru\\
+$ x_{n+1} = 4.0 * x_{n} - 3.0 * x_{n} * x_{n} $\\
+- porównać z wynikami z wcześniejszego zadania.
 
-\paragraph{Rozwiązanie} ~\\
-\lstinputlisting[caption={Kod programu do zadania 2},label=lst:KodProgramuDoZadania2]{zad2.c} ~\\
+\lstinputlisting[caption=Kod programu do zadania 2,label=lst:KodProgramuDoZadania2]{zad2.c}
 
-\paragraph{Wynik} ~\\
 \begin{table}[h]
-  \centering
-  \begin{tabular}{r|c|c}
-    n & float & double \\
-    \hline 0 & 0.010000 & 0.010000 \\
-    \hline 1 & 0.039700 & 0.039700 \\
-    \hline 2 & 0.154072 & 0.154072 \\
-    \hline 3 & 0.545073 & 0.545073 \\
-    \hline 4 & 1.288978 & 1.288978 \\
-    \hline 5 & 0.171519 & 0.171519 \\
-    \hline \textbf{6} & \textbf{0.597821} & \textbf{0.597820} \\
-    \hline 7 & 1.319114 & 1.319114 \\
-    \hline ... & ... & ... \\
-    \hline 28 & 0.003118 & 0.850352 \\
-    \hline \textbf{29} & \textbf{0.012443} & \textbf{1.232112} \\
-    \hline 30 & 0.049309 & 0.374147 \\
-    \hline ... & ... & ... \\
-    \hline
-  \end{tabular}
   \caption{Wynik programu do zadania 2}
   \label{tab:WynikProgramuDoZadania2}
+  \centering
+  \begin{tabular}{r|c|c}
+    n & float & double\\
+    \hline 0 & 0.010000 & 0.010000\\
+    \hline 1 & 0.039700 & 0.039700\\
+    \hline 2 & 0.154072 & 0.154072\\
+    \hline 3 & 0.545073 & 0.545073\\
+    \hline 4 & 1.288978 & 1.288978\\
+    \hline 5 & 0.171519 & 0.171519\\
+    \hline \textbf{6} & \textbf{0.597821} & \textbf{0.597820}\\
+    \hline 7 & 1.319114 & 1.319114\\
+    \hline ... & ... & ...\\
+    \hline 28 & 0.003118 & 0.850352\\
+    \hline \textbf{29} & \textbf{0.012443} & \textbf{1.232112}\\
+    \hline 30 & 0.049309 & 0.374147\\
+    \hline ... & ... & ...\\
+    \hline
+  \end{tabular}
 \end{table}
 
-\paragraph{Podsumowanie} ~\\
-Podobnie jak w poprzednim programie, skompilowany kod liczy 99 kolejnych liczb ze wzoru podanego w treści zadania.
+\paragraph{Podsumowanie}~\\
+Kod programu do zadania 2 zaprezentowany jest na listingu~\ref{lst:KodProgramuDoZadania2}.
+Podobnie jak w poprzednim programie, liczy on 99 kolejnych liczb ze wzoru podanego w treści zadania.
+Fragmenty z wyników jego działania widać w tabeli~\ref{tab:WynikProgramuDoZadania2}.
 Zachodzi tutaj podobna sytuacja jak w poprzednim zadaniu.
 Pierwszą różnicę widać już przy 6 iteracji pętli.
 W tym przypadku, znaczącą różnicę widać jednak w 29 iteracji pętli, czyli później niż w poprzednim zadaniu.

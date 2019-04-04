@@ -1,12 +1,13 @@
+PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
+ADDITIONAL := rys.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
-REPORT := raport.pdf
 
-.PHONY: all clean distclean clean_interpolacja clean_report
+.PHONY: all clean distclean
 
-all: $(TARGETS) rys.jpg $(REPORT) clean clean_interpolacja clean_report
+all: $(TARGETS) $(ADDITIONAL) clean
 
 $(TARGETS):
 	$(CC) $(CFLAGS) -c $@.c -o $@.o
@@ -14,27 +15,18 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
+	$(RM) gsl_interp_*.txt wartosci.txt
+	$(RM) $(PDF).log *.aux
 
-distclean: clean distclean_interpolacja distclean_report
-	$(RM) $(TARGETS)
+distclean: clean
+	$(RM) $(TARGETS) $(ADDITIONAL)
 
-$(REPORT):
-	pdflatex $(patsubst %.pdf,%,$@)
+$(PDF).aux:
+	pdflatex $(PDF) -interaction=nonstopmode > /dev/null 2>&1
 
-clean_report:
-	$(RM) $(patsubst %,%.aux,$(TARGETS)) $(patsubst %.pdf,%.aux,$(REPORT)) $(patsubst %.pdf,%.log,$(REPORT))
+$(PDF).pdf: $(PDF).aux
+	pdflatex $(PDF) -interaction=nonstopmode
 
-distclean_report: clean_report
-	$(RM) $(REPORT)
-
-inter.txt: interpolacja
+rys.jpg: interpolacja
 	./$<
-
-rys.jpg: inter.txt
-	gnuplot -e 'set output "$@"' -e 'set terminal jpeg' -e 'plot "$<" with lines'
-
-clean_interpolacja:
-	$(RM) inter.txt wartosci.txt
-
-distclean_interpolacja: clean_interpolacja
-	$(RM) rys.jpg
+	gnuplot -e 'load "plot.txt"'

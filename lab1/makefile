@@ -1,12 +1,13 @@
+PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
+ADDITIONAL := $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS :=
-REPORT := raport.pdf
 
-.PHONY: all clean distclean clean_report
+.PHONY: all clean distclean
 
-all: $(TARGETS) $(REPORT) clean clean_report
+all: $(TARGETS) $(ADDITIONAL) clean
 
 $(TARGETS):
 	$(CC) $(CFLAGS) -c $@.c -o $@.o
@@ -14,15 +15,14 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
+	$(RM) gsl_interp_*.txt wartosci.txt
+	$(RM) $(PDF).log *.aux
 
-distclean: clean distclean_report
-	$(RM) $(TARGETS)
+distclean: clean
+	$(RM) $(TARGETS) $(ADDITIONAL)
 
-$(REPORT):
-	pdflatex $(patsubst %.pdf,%,$@)
+$(PDF).aux:
+	pdflatex $(PDF) -interaction=nonstopmode > /dev/null 2>&1
 
-clean_report:
-	$(RM) $(patsubst %,%.aux,$(TARGETS)) $(patsubst %.pdf,%.aux,$(REPORT)) $(patsubst %.pdf,%.log,$(REPORT))
-
-distclean_report: clean_report
-	$(RM) $(REPORT)
+$(PDF).pdf: $(PDF).aux
+	pdflatex $(PDF) -interaction=nonstopmode

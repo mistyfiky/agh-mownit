@@ -1,44 +1,44 @@
-\paragraph{Treść} ~\\
-Napisać program liczący kolejne wyrazy ciągu: \\
-$ x_{n+1} = x_{n} + 3.0 * x_{n} * (1 - x_{n}) $ \\
+\paragraph{Treść}~\\
+Napisać program liczący kolejne wyrazy ciągu:\\
+$ x_{n+1} = x_{n} + 3.0 * x_{n} * (1 - x_{n}) $\\
 startując z punktu $ x_{0} = 0.01 $.
 Wykonać to zadanie dla różnych reprezentacji liczb (\textit{float}, \textit{double}).
-Dlaczego wyniki się rozbiegają? \\
-\textit{Uwaga: Należy wprowadzić zmienne pomocnicze, aby uniknąć obliczeń w rejestrach procesora.} \\
+Dlaczego wyniki się rozbiegają?\\
+\textit{Uwaga: Należy wprowadzić zmienne pomocnicze, aby uniknąć obliczeń w rejestrach procesora.}
 
-\paragraph{Rozwiązanie} ~\\
-\lstinputlisting[caption={Kod programu do zadania 1},label=lst:KodProgramuDoZadania1]{zad1.c} ~\\
+\lstinputlisting[caption=Kod programu do zadania 1,label=lst:KodProgramuDoZadania1]{zad1.c}
 
-\paragraph{Wynik} ~\\
 \begin{table}[h]
-  \centering
-  \begin{tabular}{r|c|c}
-    n & float & double \\
-    \hline 0 & 0.010000 & 0.010000 \\
-    \hline 1 & 0.039700 & 0.039700 \\
-    \hline 2 & 0.154072 & 0.154072 \\
-    \hline 3 & 0.545073 & 0.545073 \\
-    \hline 4 & 1.288978 & 1.288978 \\
-    \hline 5 & 0.171519 & 0.171519 \\
-    \hline \textbf{6} & \textbf{0.597819} & \textbf{0.597820} \\
-    \hline 7 & 1.319113 & 1.319114 \\
-    \hline ... & ... & ... \\
-    \hline 26 & 0.985675 & 0.070035 \\
-    \hline \textbf{27} & \textbf{1.028035} & \textbf{0.265426} \\
-    \hline 28 & 0.941572 & 0.850352 \\
-    \hline ... & ... & ... \\
-  \end{tabular}
   \caption{Wynik programu do zadania 1}
   \label{tab:WynikProgramuDoZadania1}
+  \centering
+  \begin{tabular}{r|c|c}
+    n & float & double\\
+    \hline 0 & 0.010000 & 0.010000\\
+    \hline 1 & 0.039700 & 0.039700\\
+    \hline 2 & 0.154072 & 0.154072\\
+    \hline 3 & 0.545073 & 0.545073\\
+    \hline 4 & 1.288978 & 1.288978\\
+    \hline 5 & 0.171519 & 0.171519\\
+    \hline \textbf{6} & \textbf{0.597819} & \textbf{0.597820}\\
+    \hline 7 & 1.319113 & 1.319114\\
+    \hline ... & ... & ...\\
+    \hline 26 & 0.985675 & 0.070035\\
+    \hline \textbf{27} & \textbf{1.028035} & \textbf{0.265426}\\
+    \hline 28 & 0.941572 & 0.850352\\
+    \hline ... & ... & ...\\
+  \end{tabular}
 \end{table}
 
-\paragraph{Podsumowanie} ~\\
-Program liczy 99 kolejnych liczb ze wzoru podanego w treści zadania.
+\paragraph{Podsumowanie}~\\
+Kod programu do zadania 1 zaprezentowany jest na listingu~\ref{lst:KodProgramuDoZadania1}.
+Liczy on 99 kolejnych liczb ze wzoru podanego w treści zadania.
+Fragmenty z wyników jego działania widać w tabeli~\ref{tab:WynikProgramuDoZadania1}.
 Jako że funkcje programu operują na dwóch różnych typach danych \textit{float} oraz \textit{double} wyniki różnią się.
 Pierwszą nieznaczną różnicę można zauważyć już w 6 iteracji pętli.
 Później wyniki coraz bardziej się rozbiegają.
 Znaczącą różnicę widać w 27 iteracji pętli, gdzie jedna wartość jest większa od 1, a druga od niej mniejsza.
-Wynika to z faktu, że \textit{float} jest liczbą pojedynczej precyzji reprezentowaną według standardu IEEE 754\nocite{WikiIEEE754} przez 32 bity (w tym 1 bit na znak, 8 bitów na wykładnik oraz 23 bity na mantysę), a \textit{double} jest liczą podwójnej precyzji (składającej się według tego samego standardu z 1 bitu znaku, 11 bitów wykładnika oraz 52 bitów mantysy).
+Wynika to z faktu, że \textit{float} jest liczbą pojedynczej precyzji reprezentowaną według standardu IEEE 754~\cite{WikiIEEE754} przez 32 bity (w tym 1 bit na znak, 8 bitów na wykładnik oraz 23 bity na mantysę), a \textit{double} jest liczą podwójnej precyzji (składającej się według tego samego standardu z 1 bitu znaku, 11 bitów wykładnika oraz 52 bitów mantysy).
 Przez inny zapis liczby podwójnej precyzji reprezentują około 16 dziesiętnych miejsc znaczących, natomiast pojedynczej tylko od 7 do 8.
 Stąd też widoczne różnice w wyniku.
 

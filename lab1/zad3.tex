@@ -1,23 +1,23 @@
-\paragraph{Treść} ~\\
-Znaleźć ,,maszynowe epsilon'', czyli najmniejszą liczbę a, taką że $ a + 1 > 1 $ \\
+\paragraph{Treść}~\\
+Znaleźć ,,maszynowe epsilon'', czyli najmniejszą liczbę a, taką że $ a + 1 > 1 $
 
-\paragraph{Rozwiązanie} ~\\
-\lstinputlisting[caption={Kod programu do zadania 3},label=lst:KodProgramuDoZadania3]{zad3.c} ~\\
+\lstinputlisting[caption={Kod programu do zadania 3},label=lst:KodProgramuDoZadania3]{zad3.c}
 
-\paragraph{Wynik} ~\\
 \begin{table}[h]
-  \centering
-  \begin{tabular}{c|c}
-    float & double \\
-    \hline 0.000000119209289550781250000000 & 0.000000000000000222044604925031 \\
-  \end{tabular}
   \caption{Wynik programu do zadania 3}
   \label{tab:WynikProgramuDoZadania3}
+  \centering
+  \begin{tabular}{c|c}
+    float & double\\
+    \hline 0.000000119209289550781250000000 & 0.000000000000000222044604925031\\
+  \end{tabular}
 \end{table}
 
-\paragraph{Podsumowanie} ~\\
-Program dzieli liczbę na 2 tak długo, aż dojdzie do momentu, w którym potraktuje ją jako 0 (dodanie jej do 1 zwróci 1).
-Dla mojego komputera znalazł maszynowe epsilon pojedynczej (binary32) oraz podwójnej (binary64) precyzji zgodne ze standardem IEEE 754 - 2008\nocite{WikiMachineEpsilon}.
+\paragraph{Podsumowanie}~\\
+Kod programu do zadania 3 zaprezentowany jest na listingu~\ref{lst:KodProgramuDoZadania3}.
+Dzieli on liczbę na 2 tak długo, aż dojdzie do momentu, w którym potraktuje ją jako 0 (dodanie jej do 1 zwróci 1).
+Fragmenty z wyników jego działania widać w tabeli~\ref{tab:WynikProgramuDoZadania3}.
+Dla mojego komputera znalazł maszynowe epsilon pojedynczej (binary32) oraz podwójnej (binary64) precyzji zgodne ze standardem IEEE 754 - 2008~\cite{WikiMachineEpsilon}.
 
 \begin{thebibliography}{9}
   \bibitem{WikiMachineEpsilon} Machine epsilon - Wikipedia https://en.wikipedia.org/wiki/Machine\_epsilon

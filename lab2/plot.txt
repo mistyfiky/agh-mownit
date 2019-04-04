@@ -1,0 +1,10 @@
+set output "rys.jpg"
+set terminal jpeg
+set key right bottom
+plot "gsl_interp_linear.txt" with lines title "linear", \
+     "gsl_interp_polynomial.txt" with lines title "polynomial", \
+     "gsl_interp_cspline.txt" with lines title "cspline", \
+     "gsl_interp_cspline_periodic.txt" with lines title "cspline periodic", \
+     "gsl_interp_akima.txt" with lines title "akima", \
+     "gsl_interp_akima_periodic.txt" with lines title "akima periodic", \
+     "gsl_interp_steffen.txt" with lines title "steffen"

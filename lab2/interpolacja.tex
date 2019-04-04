@@ -1,20 +1,21 @@
-\paragraph{Treść} ~\\
+\paragraph{Treść}~\\
 Proszę skompilować i uruchomić program \textit{interpolacja.c}.
-Korzystając z programu gnuplot narysować wykres. \\
-Narysować na jednym wykresie krzywe otrzymane różnymi metodami interpolacji (w przykładzie ustawione jest \textit{gsl\_interp\_polynomial})\nocite{GslManualInterpolation}.
+Korzystając z programu gnuplot narysować wykres.\\
+Narysować na jednym wykresie krzywe otrzymane różnymi metodami interpolacji (w przykładzie ustawione jest \textit{gsl\_interp\_polynomial}).
 
-\paragraph{Rozwiązanie} ~\\
-\lstinputlisting[caption={Kod programu do zadań gsl},label=lst:KodProgramuDoZadanGsl]{interpolacja.c} ~\\
+\lstinputlisting[caption=Kod programu do zadań gsl,label=lst:KodProgramuDoZadanGsl]{interpolacja.c}
 
-\paragraph{Wynik} ~\\
 \begin{figure}[h]
-  \centering
-  \includegraphics[width=\textwidth]{rys.jpg}
   \caption{Wynik programu gnuplot na podstawie danych z programu do zadań gsl}
   \label{fig:WynikProgramuGnuplotNaPodstawieDanychZProgramuDoZadanGsl}
+  \centering
+  \includegraphics[width=\textwidth]{rys.jpg}
 \end{figure}
 
-\paragraph{Podsumowanie} ~\\
+\paragraph{Podsumowanie}~\\
+Wynik dla zadania zaprezentowany jest na rysunku~\ref{fig:WynikProgramuGnuplotNaPodstawieDanychZProgramuDoZadanGsl}.
+Został on przygotowany na podstawie szablonu dołączonego do zadania.
+Rysunek został przygotowany przez program gnuplot ze wszystkich dostępnych typów interpolacji~\cite{GslManualInterpolation}.
 
 \begin{thebibliography}{9}
   \bibitem{GslManualInterpolation} GNU Scientific Library - Reference Manual: Interpolation https://www.gnu.org/software/gsl/manual/html\_node/Interpolation.html
