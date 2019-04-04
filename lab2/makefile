@@ -29,4 +29,4 @@ $(PDF).pdf: $(PDF).aux
 
 rys.jpg: interpolacja
 	./$<
-	gnuplot -e 'load "plot.txt"'
+	gnuplot -e 'load "$<.txt"'
