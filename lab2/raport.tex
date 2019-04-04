@@ -1,13 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 
-\usepackage[polish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{polski}
-\usepackage[T1]{fontenc}
-\frenchspacing
-\usepackage{indentfirst}
-
-\usepackage{listings}
+\usepackage{custom}
 
 \title{MOwNiT - sprawozdanie 2}
 \author{Jan Malisz}
@@ -18,6 +11,8 @@
   \maketitle
   \thispagestyle{empty}
 
-  \include{interpolacja}
+  \newpage
+  \section*{Zadania gsl} \label{sec:ZadaniaGsl}
+  \import{./}{interpolacja}
 
 \end{document}

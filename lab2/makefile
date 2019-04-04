@@ -4,9 +4,9 @@ CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
 REPORT := raport.pdf
 
-.PHONY: all clean distclean clean_report
+.PHONY: all clean distclean clean_interpolacja clean_report
 
-all: $(TARGETS) $(REPORT) clean clean_report
+all: $(TARGETS) rys.jpg $(REPORT) clean clean_interpolacja clean_report
 
 $(TARGETS):
 	$(CC) $(CFLAGS) -c $@.c -o $@.o
@@ -15,7 +15,7 @@ $(TARGETS):
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
 
-distclean: clean distclean_report
+distclean: clean distclean_interpolacja distclean_report
 	$(RM) $(TARGETS)
 
 $(REPORT):
@@ -26,3 +26,15 @@ clean_report:
 
 distclean_report: clean_report
 	$(RM) $(REPORT)
+
+inter.txt: interpolacja
+	./$<
+
+rys.jpg: inter.txt
+	gnuplot -e 'set output "$@"' -e 'set terminal jpeg' -e 'plot "$<" with lines'
+
+clean_interpolacja:
+	$(RM) inter.txt wartosci.txt
+
+distclean_interpolacja: clean_interpolacja
+	$(RM) rys.jpg

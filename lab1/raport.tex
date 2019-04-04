@@ -1,13 +1,6 @@
 \documentclass[10pt,a4paper]{article}
 
-\usepackage[polish]{babel}
-\usepackage[utf8]{inputenc}
-\usepackage{polski}
-\usepackage[T1]{fontenc}
-\frenchspacing
-\usepackage{indentfirst}
-
-\usepackage{listings}
+\usepackage{custom}
 
 \title{MOwNiT - sprawozdanie 1}
 \author{Jan Malisz}
@@ -18,10 +11,16 @@
   \maketitle
   \thispagestyle{empty}
 
-  \include{zad1}
+  \newpage
+  \section*{Zadanie 1.} \label{sec:Zadanie1}
+  \import{./}{zad1}
 
-  \include{zad2}
+  \newpage
+  \section*{Zadanie 2.} \label{sec:Zadanie2}
+  \import{./}{zad2}
 
-  \include{zad3}
+  \newpage
+  \section*{Zadanie 3} \label{sec:Zadanie3}
+  \import{./}{zad3}
 
 \end{document}
