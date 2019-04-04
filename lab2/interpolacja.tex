@@ -3,7 +3,11 @@ Proszę skompilować i uruchomić program \textit{interpolacja.c}.
 Korzystając z programu gnuplot narysować wykres.\\
 Narysować na jednym wykresie krzywe otrzymane różnymi metodami interpolacji (w przykładzie ustawione jest \textit{gsl\_interp\_polynomial}).
 
+\lstinputlisting[caption=Szkielet programu do zadań gsl,label=lst:SzkieletProgramuDoZadanGsl]{interpolacja.c.skel}
+
 \lstinputlisting[caption=Kod programu do zadań gsl,label=lst:KodProgramuDoZadanGsl]{interpolacja.c}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadań gsl,label=lst:KomendyDlaProgramuGnuplotDoZadanGsl]{interpolacja.txt}
 
 \begin{figure}[h]
   \caption{Wynik programu gnuplot na podstawie danych z programu do zadań gsl}
@@ -13,9 +17,9 @@ Narysować na jednym wykresie krzywe otrzymane różnymi metodami interpolacji (
 \end{figure}
 
 \paragraph{Podsumowanie}~\\
-Wynik dla zadania zaprezentowany jest na rysunku~\ref{fig:WynikProgramuGnuplotNaPodstawieDanychZProgramuDoZadanGsl}.
-Został on przygotowany na podstawie szablonu dołączonego do zadania.
-Rysunek został przygotowany przez program gnuplot ze wszystkich dostępnych typów interpolacji~\cite{GslManualInterpolation}.
+Kod programu do zadań gsl widoczny na listowaniu~\ref{lst:KodProgramuDoZadanGsl} został przygotowany na podstawie szablonu dołączonego do zadania widocznego na listowaniu~\ref{lst:SzkieletProgramuDoZadanGsl}.
+Generuje on pliki dla wszystkich dostępnych typów interpolacji w bibliotece gnuplot~\cite{GslManualInterpolation}, które następnie przekazywane są do progamu gnuplot, poprzez załadowanie do niego komend z listowania~\ref{lst:KomendyDlaProgramuGnuplotDoZadanGsl}.
+Wynik zaprezentowany jest na rysunku~\ref{fig:WynikProgramuGnuplotNaPodstawieDanychZProgramuDoZadanGsl}.
 
 \begin{thebibliography}{9}
   \bibitem{GslManualInterpolation} GNU Scientific Library - Reference Manual: Interpolation https://www.gnu.org/software/gsl/manual/html\_node/Interpolation.html
