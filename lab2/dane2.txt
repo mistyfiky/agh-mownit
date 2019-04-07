@@ -1,3 +1,7 @@
 set output "dane2.jpg"
 set terminal jpeg
-plot "dane2.dat" with lines
+set dgrid3d 24,24
+set style data lines
+set hidden3d
+set arrow from 2,1,1.5 to 4,3,1
+splot "dane2.dat"
