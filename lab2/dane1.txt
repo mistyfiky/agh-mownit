@@ -1,0 +1,4 @@
+set output "dane1.jpg"
+set terminal jpeg
+set logscale x 2
+plot "dane1.dat" with lines

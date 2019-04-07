@@ -1,6 +1,6 @@
 PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
-ADDITIONAL := rys.jpg $(PDF).pdf
+ADDITIONAL := rys.jpg dane1.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
@@ -30,3 +30,6 @@ $(PDF).pdf: $(PDF).aux
 rys.jpg: interpolacja
 	./$<
 	gnuplot -e 'load "$<.txt"'
+
+dane1.jpg:
+	gnuplot -e 'load "dane1.txt"'
