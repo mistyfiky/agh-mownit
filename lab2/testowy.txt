@@ -1,0 +1,14 @@
+set output "testowy.jpg"
+set terminal jpeg
+
+set title "Wykres testowy"
+set key left top
+set grid back
+set xrange [-3:3]
+set ylabel "Amplituda"
+set yrange [-4:5]
+
+plot "fun1.txt" title "Dane z pliku fun1.txt" lc rgb "red" with xyerrorbars, \
+    sin(x**5) title "funkcja2: sin(x^5)" lc rgb "green", \
+    2*cos(x*sin(x)) title "funkcja1: 2*cos(x*sin(x))" lc rgb "blue" with boxes, \
+    3*sin(x) title "funkcja3: 3*sin(x)" lc rgb "red"
