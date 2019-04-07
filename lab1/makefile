@@ -21,7 +21,7 @@ distclean: clean
 	$(RM) $(TARGETS) $(ADDITIONAL)
 
 $(PDF).aux:
-	pdflatex $(PDF) -interaction=nonstopmode > /dev/null 2>&1
+	pdflatex $(PDF) -interaction=nonstopmode > /dev/null
 
 $(PDF).pdf: $(PDF).aux
 	pdflatex $(PDF) -interaction=nonstopmode
