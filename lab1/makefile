@@ -10,8 +10,8 @@ LDFLAGS :=
 all: $(TARGETS) $(ADDITIONAL) clean
 
 $(TARGETS):
-	$(CC) $(CFLAGS) -c $@.c -o $@.o
-	$(CC) $(CFLAGS) $(LDFLAGS) $@.o -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $@.c -o $@.o
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) $@.o -o $@
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
@@ -21,7 +21,7 @@ distclean: clean
 	$(RM) $(TARGETS) $(ADDITIONAL)
 
 $(PDF).aux:
-	pdflatex $(PDF) -interaction=nonstopmode > /dev/null
+	pdflatex -interaction=nonstopmode -draft $(PDF)
 
 $(PDF).pdf: $(PDF).aux
-	pdflatex $(PDF) -interaction=nonstopmode
+	pdflatex -interaction=nonstopmode $(PDF)

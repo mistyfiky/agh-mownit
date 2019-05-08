@@ -1,0 +1,8 @@
+set output "pierwsze_1.jpg"
+set terminal jpeg
+set xrange [-1:1]
+set yrange [0.5:3]
+set key right bottom
+plot exp(x**2) with lines lw 3, \
+    "pierwsze_1.dat" using 1:2 title "Czybyszew 10" with lines lw 3, \
+    "pierwsze_1.dat" using 1:3 title "Czybyszew 40" with lines lw 3

@@ -1,0 +1,8 @@
+set output "pierwsze_2.jpg"
+set terminal jpeg
+set xrange [-1:1]
+set yrange [-0.5:2.5]
+set key right bottom
+plot abs(x + x**3) with lines lw 3, \
+    "pierwsze_2.dat" using 1:2 title "Czybyszew 10" with lines lw 3, \
+    "pierwsze_2.dat" using 1:3 title "Czybyszew 40" with lines lw 3

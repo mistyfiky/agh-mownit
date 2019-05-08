@@ -1,6 +1,6 @@
 PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
-ADDITIONAL := rys.jpg dane1.jpg dane2.jpg testowy.jpg $(PDF).pdf
+ADDITIONAL := pierwsze_1.jpg pierwsze_2.jpg pierwsze_3.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
@@ -15,21 +15,21 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
-	$(RM) gsl_interp_*.txt wartosci.txt
+	$(RM) pierwsze_*.dat
 	$(RM) $(PDF).log *.aux
 
 distclean: clean
 	$(RM) $(TARGETS) $(ADDITIONAL)
 
 $(PDF).aux:
-	pdflatex -interaction=nonstopmode -draft $(PDF)
+	pdflatex -interaction=nonstopmode $(PDF)
+	$(RM) $(PDF).pdf
 
 $(PDF).pdf: $(PDF).aux
 	pdflatex -interaction=nonstopmode $(PDF)
 
-rys.jpg: interpolacja
+%.dat: pierwsze
 	./$<
-	gnuplot -e 'load "$<.txt"'
 
-%.jpg: %.txt
-	gnuplot -e 'load "$<"'
+%.jpg: %.dat
+	gnuplot -e 'load "$(patsubst %.jpg,%.txt,$@)"'

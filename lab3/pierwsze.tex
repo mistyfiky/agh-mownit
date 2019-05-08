@@ -1,0 +1,62 @@
+\paragraph{Treść}~\\
+Proszę zastosować aproksymację Czebyszewa dla funkcji:\\
+1. $ y = exp(x**2) $ w przedziale od -1 do 1\\
+2. $ y = abs(x+x**3) $ w przedziale od -1 do 1\\
+3. $ y = sign(x) $ w przedziale od -1 do 1\\
+Do aproksymacji należy użyć biblioteki GSL.\\
+Dla każdej funkcji proszę:\\
+- narysować wykres funkcji aproksymowanej i aproksymującej (gnuplot)\\
+- sprawdzić, jak wynik zależy od stopnia wielomianu aproksymującego - przedstawić odpowiednie wykresy\\
+
+\lstinputlisting[caption=Kod programu do zadania pierwszego,label=lst:PierwszeC]{pierwsze.c}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadania pierwszego podpunkt 1,label=lst:Pierwsze1Txt]{pierwsze_1.txt}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadania pierwszego podpunkt 2,label=lst:Pierwsze2Txt]{pierwsze_2.txt}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadania pierwszego podpunkt 3,label=lst:Pierwsze3Txt]{pierwsze_3.txt}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie danych z programu do zadania pierwszego podpunkt 1}
+  \label{fig:Pierwsze1Jpg}
+  \centering
+  \includegraphics[width=\textwidth]{pierwsze_1.jpg}
+\end{figure}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie danych z programu do zadania pierwszego podpunkt 2}
+  \label{fig:Pierwsze2Jpg}
+  \centering
+  \includegraphics[width=\textwidth]{pierwsze_2.jpg}
+\end{figure}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie danych z programu do zadania pierwszego podpunkt 3}
+  \label{fig:Pierwsze3Jpg}
+  \centering
+  \includegraphics[width=\textwidth]{pierwsze_3.jpg}
+\end{figure}
+
+\paragraph{Podsumowanie}~\\
+Kod programu do zadania pierwszego widoczny jest na listowaniu~\ref{lst:PierwszeC} został przygotowany na podstawie przykłądu z dokumentacji biblioteki gsl~\cite{GslManualChebyshevApproximations}.
+Generuje on pliki z wartościami wielomianu Czybyszewa dziesiątego i czterdziestego stopnia dla funkcji z treści zadania dla podanego przedziału, które następnie przekazywane są do progamu gnuplot, poprzez załadowanie do niego komend z listowania~\ref{lst:Pierwsze1Txt}, ~\ref{lst:Pierwsze2Txt} oraz ~\ref{lst:Pierwsze3Txt}.
+\\
+Wynik podpunktu 1 zaprezentowany jest na rysunku~\ref{fig:Pierwsze1Jpg}.
+Kształty wykresów pokrywają się idealnie.
+Funkcja ta daje się świetnie aproksymować dla obu stopni wielomianu Czybyszewa.
+\\
+Wynik podpunktu 2 zaprezentowany jest na rysunku~\ref{fig:Pierwsze2Jpg}.
+W przypadku tej funkcji problemem jest charakterystyczne wcięcie aproksymowanej funkcji.
+Nie radzi sobie z nim wielomian niższego stopnia, jednak ten wyższego, dobrze odwzorowuje przebieg funkcji.
+\\
+Wynik podpunktu 3 zaprezentowany jest na rysunku~\ref{fig:Pierwsze3Jpg}.
+W tym przypadku nieciągłość funkcji powoduje duże nieścisłości wielomianu Czybyszewa.
+Szczególnie widać w okolicach zera.
+Wielomian niższego stopnia "wolno" dokonuje zmiany znaku.
+Trochę lepiej radzi sobie z tym wielomian wyższego stopnia - zmiana następuje "szybciej" i mniejsze są oscylacje wartości pod i nad osią x.
+\\
+Jak widać na przykładach, zwiększając stopień wielomianu uzyskujemy większą dokładność przybliżeń funkcji.
+
+\begin{thebibliography}{9}
+  \bibitem{GslManualChebyshevApproximations} GNU Scientific Library – Reference Manual: Chebyshev Approximations: Interpolation http://www.gnu.org/software/gsl/manual/html\_node/Chebyshev-Approximations.html
+\end{thebibliography}
