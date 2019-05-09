@@ -55,7 +55,7 @@ int main(int argc, char *argv[]) {
     }
     pi1 = pi(fi1, a, b);
     pi2 = pi(fi2, a, b);
-    printf("%g %g %g\n%g %g %g\n",
+    printf("%f %f %e\n%f %f %e\n",
            pc1, pi1, e(pc1, pi1),
            pc2, pi2, e(pc2, pi2));
     return EXIT_SUCCESS;
