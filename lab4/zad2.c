@@ -7,16 +7,32 @@ double f1(double x) {
     return pow(x, 2);
 }
 
+double fi1(double x) {
+    return pow(x, 3) / 3;
+}
+
 double f2(double x) {
     return 1 / sqrt(x);
 }
 
-double p(double y1, double y2, double ab) {
+double fi2(double x) {
+    return 2 * sqrt(x);
+}
+
+double pc(double y1, double y2, double ab) {
     return (y1 + y2) * ab / 2;
 }
 
+double pi(double (*fi)(double), double x1, double x2) {
+    return fi(x2) - fi(x1);
+}
+
+double e(double p1, double p2) {
+    return fabs(p1 - p2);
+}
+
 int main(int argc, char *argv[]) {
-    double a, b, ab, x1, x2, p1 = 0, p2 = 0;
+    double a, b, ab, x1, x2, pc1 = 0, pi1, pc2 = 0, pi2;
     int n, i;
     if (argc < 3) {
         errno = EINVAL;
@@ -34,9 +50,13 @@ int main(int argc, char *argv[]) {
     for (i = 0; i < n; i++) {
         x1 = a + i * ab;
         x2 = a + (i + 1) * ab;
-        p1 += p(f1(x1), f1(x2), ab);
-        p2 += p(f2(x1), f2(x2), ab);
+        pc1 += pc(f1(x1), f1(x2), ab);
+        pc2 += pc(f2(x1), f2(x2), ab);
     }
-    printf("%g %g\n", p1, p2);
+    pi1 = pi(fi1, a, b);
+    pi2 = pi(fi2, a, b);
+    printf("%g %g %g\n%g %g %g\n",
+           pc1, pi1, e(pc1, pi1),
+           pc2, pi2, e(pc2, pi2));
     return EXIT_SUCCESS;
 }
