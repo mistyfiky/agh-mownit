@@ -1,6 +1,6 @@
 PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
-ADDITIONAL := $(PDF).pdf
+ADDITIONAL := zad3.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
@@ -13,6 +13,7 @@ all : $(TARGETS) $(ADDITIONAL) clean
 	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $<
 
 clean :
+	$(RM) zad3.dat
 	$(RM) $(PDF).log texput.log *.aux
 
 distclean : clean
@@ -24,3 +25,9 @@ $(PDF).aux :
 
 $(PDF).pdf : $(PDF).aux
 	pdflatex -interaction=nonstopmode $(PDF)
+
+zad3.dat : zad2
+	./zad3.sh > zad3.dat
+
+zad3.jpg : zad3.dat
+	gnuplot -e 'load "zad3.txt"'

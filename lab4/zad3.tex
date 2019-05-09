@@ -3,5 +3,18 @@
 Zbadać, przy użyciu programu z poprzedniego punktu, jak zmienia się błąd całkowania wraz ze wzrostem liczby podprzedziałów.
 Kiedy błąd jest mniejszy niż 1e-3, 1e-4, 1e-5 i 1e-6?
 
+\lstinputlisting[caption=Skrypt do generowania danych do zadania 3,label=lst:Zad3Sh]{zad3.sh}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadania 3,label=lst:Zad3Txt]{zad3.txt}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie danych z programu do zadania 2}
+  \label{fig:Zad3Jpg}
+  \centering
+  \includegraphics[width=\textwidth]{zad3.jpg}
+\end{figure}
+
 \paragraph{Podsumowanie}~\\
-TODO
+Przy pomocy programu z zadania 2~\ref{lst:Zad2C}, skryptu~\ref{lst:Zad3Sh} oraz komend dla programu gnuplot~\ref{lst:Zad3Txt} został wygenerowany wykres~\ref{fig:Zad3Jpg}.
+Można z niego odczytać, że aby błąd całkowania za pomocą metody prostokątów był mniejszy niż 1e-3, 1e-4, 1e-5 i 1e-6 trzeba odpowienio dla funkcji $ x^2 $ zwiększyć liczbę przedziałów do pomiędzy 10 a 100, 100, trochę powyżej 100 i 1000.
+Dla funkcji $ \frac{1}{\sqrt{x}} $ nie udało się zejść poniżej 1e-3 ze względu na zakres typu doule, jednak przy lepszym typie byłoby to ok 1e6.

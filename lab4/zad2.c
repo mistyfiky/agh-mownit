@@ -12,6 +12,9 @@ double fi1(double x) {
 }
 
 double f2(double x) {
+    if (0 == x) {
+        return 0;
+    }
     return 1 / sqrt(x);
 }
 
@@ -55,8 +58,8 @@ int main(int argc, char *argv[]) {
     }
     pi1 = pi(fi1, a, b);
     pi2 = pi(fi2, a, b);
-    printf("%f %f %e\n%f %f %e\n",
-           pc1, pi1, e(pc1, pi1),
-           pc2, pi2, e(pc2, pi2));
+    printf("%f\t%f\n", pc1, pc2);
+    printf("%f\t%f\n", pi1, pi2);
+    printf("%e\t%e\n", e(pc1, pi1), e(pc2, pi2));
     return EXIT_SUCCESS;
 }
