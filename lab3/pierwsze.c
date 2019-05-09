@@ -19,7 +19,7 @@ double f3(double x, void *p) {
 
 double (*f[])(double, void *) = {f1, f2, f3};
 
-char *a[] = {"pierwsze_1.dat", "pierwsze_2.dat", "pierwsze_3.dat"};
+char *a[] = {"pierwsze1.dat", "pierwsze2.dat", "pierwsze3.dat"};
 
 int main(void) {
 

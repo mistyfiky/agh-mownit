@@ -15,7 +15,7 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
-	$(RM) $(PDF).log *.aux
+	$(RM) $(PDF).log texput.log *.aux
 
 distclean: clean
 	$(RM) $(TARGETS) $(ADDITIONAL)
