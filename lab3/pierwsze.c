@@ -4,13 +4,11 @@
 
 double f1(double x, void *p) {
     (void) (p); /* avoid unused parameter warning */
-
     return exp(pow(x, 2));
 }
 
 double f2(double x, void *p) {
     (void) (p); /* avoid unused parameter warning */
-
     return fabs(x + pow(x, 3));
 }
 

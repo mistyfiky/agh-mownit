@@ -1,0 +1,24 @@
+\paragraph{Treść}~\\
+1. Wykonać aproksymację funkcji $ f(x) = (1/2)**(x**2 + 2x) $, gdzie x należy do przedziału (-1,1), przy pomocy aproksymacji średniokwadratowej.\\
+2. Znaleźć aproksymację tej funkcji przy pomocy aproksymacji jednostajnej i porównać tę aproksymację z wynikiem z p1.\\
+
+\lstinputlisting[caption=Kod programu do dalszych zadań,label=lst:DalszeC]{dalsze.c}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do dalszych zadań,label=lst:DalszeTxt]{dalsze.txt}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie danych z programu do dalszych zadań}
+  \label{fig:DalszeJpg}
+  \centering
+  \includegraphics[width=\textwidth]{dalsze.jpg}
+\end{figure}
+
+\paragraph{Podsumowanie}~\\
+Kod programu do dalszych zadań widoczny jest na listowaniu~\ref{lst:DalszeC}.
+Został on przygotowany na podstawie przykłądu z dokumentacji biblioteki gsl~\cite{LinearLeastSquaresFittingGSL25Documentation}.
+W przypadku zadanej funkcji aproksymacja jednostajna (w tym wypadku wielomian Czybyszewa), zarówno stopnia dziesiątego jak i czterdziestego, aby idealnie odwzorować przebieg funkcji.
+Drugi stopień aproksymacji średniokwadratowej nie wystarcza, aby dobrze przybliżyć krzywą, co widać na wykresie.
+
+\begin{thebibliography}{9}
+  \bibitem{LinearLeastSquaresFittingGSL25Documentation} Linear Least-Squares Fitting — GSL 2.5 documentation https://www.gnu.org/software/gsl/doc/html/lls.html\#simple-linear-regression-example
+\end{thebibliography}

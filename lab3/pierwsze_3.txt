@@ -3,6 +3,6 @@ set terminal jpeg
 set xrange [-1:1]
 set yrange [-1.5:1.5]
 set key right bottom
-plot "pierwsze_3.dat" using 1:2 title "Oryginalna funkcja" with lines lw 3, \
+plot "pierwsze_3.dat" using 1:2 title "Oryginalna funkcja" with lines lw 4, \
     "pierwsze_3.dat" using 1:3 title "10-ty stopień" with lines lw 3, \
-    "pierwsze_3.dat" using 1:4 title "40-ty stopień" with lines lw 3
+    "pierwsze_3.dat" using 1:4 title "40-ty stopień" with lines lw 2

@@ -1,6 +1,6 @@
 PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
-ADDITIONAL := pierwsze_1.jpg pierwsze_2.jpg pierwsze_3.jpg $(PDF).pdf
+ADDITIONAL := pierwsze_1.jpg pierwsze_2.jpg pierwsze_3.jpg dalsze.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
@@ -15,7 +15,7 @@ $(TARGETS):
 
 clean:
 	$(RM) $(patsubst %,%.o,$(TARGETS))
-	$(RM) pierwsze_*.dat
+	$(RM) *.dat
 	$(RM) $(PDF).log *.aux
 
 distclean: clean
@@ -28,7 +28,10 @@ $(PDF).aux:
 $(PDF).pdf: $(PDF).aux
 	pdflatex -interaction=nonstopmode $(PDF)
 
-%.dat: pierwsze
+pierwsze_%.dat: pierwsze
+	./$<
+
+dalsze.dat: dalsze
 	./$<
 
 %.jpg: %.dat

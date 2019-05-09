@@ -1,0 +1,7 @@
+set output "dalsze.jpg"
+set terminal jpeg
+set xrange [-1:1]
+plot "dalsze.dat" using 1:2 title "Oryginalna funkcja" with lines lw 4, \
+    "dalsze.dat" using 1:3 title "Średniokwadratowa" with lines lw 3, \
+    "dalsze.dat" using 1:4 title "10-ty stopień" with lines lw 3, \
+    "dalsze.dat" using 1:5 title "40-ty stopień" with lines lw 2, \
