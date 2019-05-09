@@ -7,8 +7,11 @@ Patrz przykład w dokumentacji GSL~\cite{NumericalIntegrationGSL25Documentation}
 
 \lstinputlisting[caption=Kod programu do zadania 4,label=lst:Zad4C]{zad4.c}
 
+\lstinputlisting[caption=Rezultat programu do zadania 4,label=lst:Zad4Out]{zad4.out}
+
 \paragraph{Podsumowanie}~\\
-TODO
+Program~\ref{lst:Zad4C} używa biblioteki gsl do obliczenia całek z funkcji podanych w treści zadania.
+Działa on znacznie wydajniej niż metoda prostokątów i już przy 1 przedziale w przypadku pierwszej funkcji oraz 6 w przypadku drugiej znajduje rozwiązania z błędem poniżej 1e-7, co można wyczytać z rezultatu jego działania~\ref{lst:Zad4Out}.
 
 \begin{thebibliography}{9}
   \bibitem{NumericalIntegrationGSL25Documentation} Numerical Integration — GSL 2.5 documentation https://www.gnu.org/software/gsl/doc/html/integration.html\#adaptive-integration-example

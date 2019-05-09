@@ -1,6 +1,6 @@
 PDF := raport
 TARGETS := $(patsubst %.c,%,$(wildcard *.c))
-ADDITIONAL := zad3.jpg $(PDF).pdf
+ADDITIONAL := zad3.jpg zad4.out $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lgsl -lgslcblas -lm
@@ -31,3 +31,6 @@ zad3.dat : zad2
 
 zad3.jpg : zad3.dat
 	gnuplot -e 'load "zad3.txt"'
+
+zad4.out : zad4
+	./zad4 0 1 > zad4.out
