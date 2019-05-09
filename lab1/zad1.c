@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 float f_calc(float xn) {
@@ -28,5 +29,5 @@ int main() {
         f_xn = f_calc(f_xn);
         d_xn = d_calc(d_xn);
     }
-    return 0;
+    return EXIT_SUCCESS;
 }

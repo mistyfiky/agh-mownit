@@ -54,7 +54,7 @@ int main(void) {
         gsl_spline_free(spline);
         gsl_interp_accel_free(acc);
     }
-    return 0;
+    return EXIT_SUCCESS;
 }
 
 

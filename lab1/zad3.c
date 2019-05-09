@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 
 int main() {
@@ -14,5 +15,5 @@ int main() {
         d_test = d_e + 1.0;
     }
     printf("float\tdouble\n%.30f\t%.30lf\n", f_e_prev, d_e_prev);
-    return 0;
+    return EXIT_SUCCESS;
 }

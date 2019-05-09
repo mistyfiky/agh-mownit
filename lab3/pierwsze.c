@@ -1,3 +1,4 @@
+#include <stdlib.h>
 #include <stdio.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_chebyshev.h>
@@ -22,19 +23,15 @@ double (*f[])(double, void *) = {f1, f2, f3};
 char *a[] = {"pierwsze1.dat", "pierwsze2.dat", "pierwsze3.dat"};
 
 int main(void) {
-
     int i, n = 10000;
     gsl_cheb_series *cs = gsl_cheb_alloc(40);
     gsl_function F;
     FILE *file;
-
     for (int j = 0; j < 3; j++) {
         file = fopen(a[j], "w");
         F.function = f[j];
         F.params = 0;
-
         gsl_cheb_init(cs, &F, -1.0, 1.0);
-
         for (i = -n; i < n; i++) {
             double x = i / (double) n;
             double r10 = gsl_cheb_eval_n(cs, 10, x);
@@ -42,11 +39,8 @@ int main(void) {
             fprintf(file, "%g %g %g %g\n",
                     x, GSL_FN_EVAL (&F, x), r10, r40);
         }
-
         fclose(file);
     }
-
     gsl_cheb_free(cs);
-
-    return 0;
+    return EXIT_SUCCESS;
 }
