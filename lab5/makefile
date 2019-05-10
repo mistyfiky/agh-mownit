@@ -1,7 +1,7 @@
 PDF := raport
-TARGETS := root_finding root_finding_brent root_finding_falsepos root_finding_modified
-OBJECTS := $(patsubst %,%.o,$(TARGETS)) demo_fn.o
-ADDITIONAL := zad1.jpg root_finding.out root_finding_brent.out root_finding_falsepos.out zad2.jpg $(PDF).pdf
+TARGETS := root_finding root_finding_multiple root_finding_modified zad3
+OBJECTS := demo_fn.o
+ADDITIONAL := zad1.jpg root_finding_multiple.out zad2.jpg zad3.out $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lm -lgsl -lgslcblas
@@ -18,12 +18,6 @@ distclean : clean
 	$(RM) $(TARGETS)
 	$(RM) $(ADDITIONAL)
 
-root_finding : demo_fn.o root_finding.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $^
-
-root_finding_% : demo_fn.o root_finding_%.o
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(LDFLAGS) -o $@ $^
-
 $(PDF).aux :
 	pdflatex -interaction=nonstopmode $(PDF)
 	$(RM) $(PDF).pdf
@@ -31,8 +25,21 @@ $(PDF).aux :
 $(PDF).pdf : $(PDF).aux
 	pdflatex -interaction=nonstopmode $(PDF)
 
-%.jpg : %.txt
-	gnuplot -e 'load "$<"'
+root_finding root_finding_multiple root_finding_modified : demo_fn.o
 
-%.out : %
-	./$< > $@
+root_finding_multiple.out : root_finding_multiple
+	echo '' > $@
+	./$< bisection >> $@
+	./$< brent >> $@
+	./$< falsepos >> $@
+
+zad1.jpg zad2.jpg :
+	gnuplot -e 'load "$(patsubst %.jpg,%.txt,$@)"'
+
+zad3 :
+
+zad3.out : zad3
+	echo '' > $@
+	./$< newton >> $@
+	./$< secant >> $@
+	./$< steffenson >> $@

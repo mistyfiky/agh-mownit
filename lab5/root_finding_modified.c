@@ -10,11 +10,12 @@ rozwiazaniem jest x = \sqrt 5 = 2.236068...
 #include <gsl/gsl_errno.h>
 #include <gsl/gsl_math.h>
 #include <gsl/gsl_roots.h>
+#include <string.h>
 
 #include "demo_fn.h"
 
 int
-main (void)
+main (int argc, char *argv[])
 {
   int status;
   int iter = 0, max_iter = 100;
@@ -27,6 +28,24 @@ main (void)
 
   F.function = &quadratic;
   F.params = &params;
+
+  if (argc < 2) {
+      errno = EINVAL;
+      perror("");
+      return errno;
+  }
+  char *method = argv[1];
+  if (0 == strcmp("bisection", method)) {
+      T = gsl_root_fsolver_bisection;
+  } else if (0 == strcmp("secant", method)) {
+      T = gsl_root_fsolver_brent;
+  } else if (0 == strcmp("steffenson", method)) {
+      T = gsl_root_fsolver_falsepos;
+  } else {
+      errno = EINVAL;
+      perror("");
+      return errno;
+  }
 
   T = gsl_root_fsolver_bisection;
   s = gsl_root_fsolver_alloc (T);

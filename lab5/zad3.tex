@@ -2,5 +2,12 @@
 Napisać program szukający miejsc zerowych za pomocą metod korzystających z pochodnej funkcji. Czym różnia się od poprzednich metod i dlaczego potrafią znaleźć pierwiastek równania $ x^2 - 2*x + 1 = 0 $?\\
 - Porównać metodę Newtona, uproszczoną Newtona i Steffensona.\\
 
+\lstinputlisting[caption=Program do zadania 3,label=lst:Zad3C]{zad3.c}
+
+\lstinputlisting[caption=Wynik programu do zadania 3,label=lst:Zad3Out]{zad3.out}
+
 \paragraph{Podsumowanie}~\\
-TODO
+Listing~\ref{lst:Zad3Out}, przedstawia wyniki uruchomień programu~\ref{lst:Zad3C} z różnymi argumentami.
+Można z nich wywnioskować, że najlepiej poradziła sobie ze znalezieniem miejca zerowego metoda Steffensona, później plasuje się metoda Newtona, a co ciekawe jej uproszczona wersja miała z tą funkcją największe problemy.
+Powyższe metody korzystają z pochodnej funkcji, dzięki temu unikają założenia o różniącym się znaku na krańcach przedziału.
+Dzięki temu potrafią znajdywać pierwiastków zarówno nieparzystego jak i parzystego stopnia. 
