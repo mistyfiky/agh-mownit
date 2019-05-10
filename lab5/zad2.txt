@@ -1,0 +1,4 @@
+set output "zad2.jpg"
+set terminal jpeg
+plot x**2 - 2*x + 1 with lines lw 2, \
+     0 with lines

@@ -1,2 +1,6 @@
+*.jpg
+*.out
 root_finding
-zad1.jpg
+root_finding_brent
+root_finding_falsepos
+root_finding_modified

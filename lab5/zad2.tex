@@ -5,5 +5,32 @@ Zmienić program tak, aby znajdował pierwiastek metodą siecznych oraz Brent-De
 - Narysować wykres tej funkcji za pomocą np. gnuplota.\\
 - Wyjasnić działanie programu - dlaczego nie może znaleźć miejsc zerowych dla tego równania?
 
+\lstinputlisting[caption=Zmodyfikowany na metodę Brenta program dołączony do zadania 1,label=lst:RootFindingBrentC,firstline=28,lastline=37]{root_finding_brent.c}
+
+\lstinputlisting[caption=Zmodyfikowany na metodę siecznych program dołączony do zadania 1,label=lst:RootFindingFalseposC,firstline=28,lastline=37]{root_finding_falsepos.c}
+
+\lstinputlisting[caption=Wynik programu dołączonego do zadania 1,label=lst:RootFindingOut]{root_finding.out}
+
+\lstinputlisting[caption=Wynik zmodyfikowanego na metodę Brenta programu dołączonego do zadania 1,label=lst:RootFindingBrentOut]{root_finding_brent.out}
+
+\lstinputlisting[caption=Wynik zmodyfikowanego na metodę siecznych programu dołączonego do zadania 1,label=lst:RootFindingFalseposOut]{root_finding_falsepos.out}
+
+\lstinputlisting[caption=Zmodyfikowany na inną funkcję program dołączony do zadania 1,label=lst:RootFindingModifiedC,firstline=25,lastline=27]{root_finding_modified.c}
+
+\lstinputlisting[caption=Komendy dla programu gnuplot do zadania 2,label=lst:Zad2Txt]{zad2.txt}
+
+\begin{figure}[p]
+  \caption{Wynik programu gnuplot na podstawie komend do zadania 2}
+  \label{fig:Zad2Jpg}
+  \centering
+  \includegraphics[width=\textwidth]{zad2.jpg}
+\end{figure}
+
 \paragraph{Podsumowanie}~\\
-TODO
+Listingi~\ref{lst:RootFindingOut}, ~\ref{lst:RootFindingBrentOut} oraz ~\ref{lst:RootFindingFalseposOut}, przedstawiają wyniki programów odpowiednio~\ref{lst:RootFindingC}, ~\ref{lst:RootFindingBrentC} oraz ~\ref{lst:RootFindingFalseposC}.
+Można z nich wywnioskować, że najwydajniejszą metodą jest Brenta, która poradziłą sobie w 6 iteracjach.
+Następnie plasuje się metoda siecznych w 9 iteracjach.
+Najgorszą wydajność zaprezentowała metoda bisekcji, która dopiero po 12 iteracjach uzyskała dokłądny wynik.\\
+Wykres~\ref{fig:Zad2Jpg}, został wygenerowany w programie gnuplot poprzez załadowanie komend z listingu~\ref{lst:Zad2Txt}.
+Prezentuje on przebieg funkcji $ x^2 - 2*x + 1 = 0 $, której miejsca zerowe są obliczane w programie z listingu~\ref{lst:RootFindingModifiedC}.
+Program nie może znaleźć miejsc zerowych, ponieważ funkcja ta ma parzysty stopień (nie zmienia znaku), co nie spełnia założeń programu.
