@@ -1,3 +1,4 @@
 set output "zad.jpg"
 set terminal jpeg
-plot 0
+plot "zad.dat" using 1:2 title "dekompozycja" with lines lw 2,\
+     "zad.dat" using 1:3 title "rozwiązanie" with lines lw 2

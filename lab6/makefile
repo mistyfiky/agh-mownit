@@ -1,7 +1,7 @@
 PDF := raport
 TARGETS := zad
 OBJECTS :=
-ADDITIONAL := zad.jpg $(PDF).pdf
+ADDITIONAL := zad.dat zad.jpg $(PDF).pdf
 CC := gcc
 CFLAGS := -Wall -Wextra
 LDFLAGS := -lm -lgsl -lgslcblas
@@ -27,5 +27,8 @@ $(PDF).pdf : $(PDF).aux
 
 zad :
 
-zad.jpg :
+zad.dat : zad.sh zad
+	./$< > $@
+
+zad.jpg : zad.dat
 	gnuplot -e 'load "$(patsubst %.jpg,%.txt,$@)"'
