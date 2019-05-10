@@ -1,0 +1,3 @@
+set output "zad.jpg"
+set terminal jpeg
+plot 0
